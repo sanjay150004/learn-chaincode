@@ -63,7 +63,15 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
         if err != nil {
                 return nil, err
         }
-
+      
+        fund := NewFund(5000)
+        if err != nil {
+                return nil, err
+        }
+        fund.Withdraw(1)
+        if err != nil {
+                return nil, err
+        }
         return nil, nil
 }
 
